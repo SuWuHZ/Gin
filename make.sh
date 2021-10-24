@@ -1,0 +1,1 @@
+go build -mod=vendor -o gin_test.exe ./main.go 
