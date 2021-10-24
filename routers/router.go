@@ -1,10 +1,10 @@
 package routers
 
 import (
-	"gin_test/controller"
+	"Gin/controller"
 	"strings"
 
-	"git/middleware"
+	"Gin/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,9 +25,9 @@ var TestController = new(controller.TestController)
 func NewRouter() *gin.Engine {
 	router := gin.Default()
 
-	router.GET("/heartbeat", BaseController.HandleHeartbeat)
+	router.GET("api/heartbeat", BaseController.HandleHeartbeat)
 
-	v1Group := router.Group("/api/v1").Use(middleware.Authenticate)
+	v1Group := router.Group("/api/v1").Use(middleware.Authenticate())
 	AddRouters(v1Group, v1Routers)
 
 	return router
@@ -54,7 +54,6 @@ func Index(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "Hello World!",
 	})
-	return
 }
 
 var v1Routers = Routes{

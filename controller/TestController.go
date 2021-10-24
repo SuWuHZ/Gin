@@ -1,13 +1,23 @@
 package controller
 
-import "github.com/gin-gonic/gin"
+import (
+	"Gin/service"
+
+	"github.com/gin-gonic/gin"
+)
 
 type TestController struct {
 	*BaseController
 }
 
 func (TC *TestController) HandleGetUserInfo(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": "pong",
-	})
+	userId := GetUserId(c)
+
+	errCode, data := service.GetUserInfo(userId)
+	if errCode == 0 {
+		TC.ResponseSuccess(c, data)
+		return
+	} else {
+		TC.ResponseFailed(c, errCode)
+	}
 }

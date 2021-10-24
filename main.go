@@ -1,12 +1,14 @@
 package main
 
 import (
+	"Gin/routers"
+	"Gin/utils"
 	"fmt"
-	"gin/routers"
 )
 
 func main() {
-	fmt.Println("Hello SuWu!")
+	listen_port := fmt.Sprintf(":%v", utils.ServerConf.ListenPort)
+
 	engin := routers.NewRouter()
-	engin.Run(":8001")
+	engin.Run(listen_port)
 }
