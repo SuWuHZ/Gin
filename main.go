@@ -7,8 +7,9 @@ import (
 )
 
 func main() {
-	listen_port := fmt.Sprintf(":%v", utils.ServerConf.ListenPort)
 
+	serverConfig := utils.ServerConf
+	listen_port := fmt.Sprintf(":%v", serverConfig.Server.Port)
 	engin := routers.NewRouter()
 	engin.Run(listen_port)
 }

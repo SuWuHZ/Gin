@@ -35,7 +35,7 @@ func (BC *BaseController) ResponseFailed(c *gin.Context, code int) {
 }
 
 func GetUserId(c *gin.Context) string {
-	return c.Value("iser_id").(string)
+	return c.Value("work_id").(string)
 }
 
 func (BC *BaseController) HandleHeartbeat(c *gin.Context) {

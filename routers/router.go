@@ -66,7 +66,13 @@ var v1Routers = Routes{
 	{
 		"HandleGetUserInfo",
 		strings.ToUpper("Get"),
-		"user-info",
+		"/user-info",
 		TestController.HandleGetUserInfo,
+	},
+	{
+		"HandleAddUserInfo",
+		strings.ToUpper("Post"),
+		"/user-info",
+		TestController.HandleAddUserInfo,
 	},
 }

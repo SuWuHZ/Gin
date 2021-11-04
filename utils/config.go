@@ -7,8 +7,12 @@ import (
 )
 
 type ServerConfig struct {
-	ListenPort string   `yaml:"port"`
-	Database   Database `yaml:"databases"`
+	Server   ServerInfo `yaml:"server"`
+	Database Database   `yaml:"database"`
+}
+
+type ServerInfo struct {
+	Port int `yaml:"port"`
 }
 
 type Database struct {

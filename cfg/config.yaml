@@ -1,7 +1,8 @@
 server:
   port: 8000
 
-databases:
+database:
   sqlconn: "root:root1234@tcp(127.0.0.1:3306)/Gin?charset=utf8"
   mongouri: ""
+  
 
